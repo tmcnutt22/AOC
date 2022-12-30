@@ -30,12 +30,17 @@ void process_line(int buffer[], std::stack <char> stackArr[]) {
     int from_index = buffer[1] - 1;
     int to_index = buffer[2] - 1;
 
+    std::stack<char> temp_stack;
     for (int i = 0; i < num_to_move; i++) {
         char *temp = new char;
         *temp = stackArr[from_index].top();
         stackArr[from_index].pop();
-        stackArr[to_index].push(*temp);
+        temp_stack.push(*temp);
         delete(temp);
+    }
+    while (!temp_stack.empty()) {
+        stackArr[to_index].push(temp_stack.top());
+        temp_stack.pop();
     }
 }
 
