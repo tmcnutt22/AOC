@@ -141,6 +141,7 @@ int main() {
     for (int i = 0; i < 9; i++) {
         std::cout << stackArr[i].top();
     }
+    std::cout <<'\n';
     return 0;
 }
 
